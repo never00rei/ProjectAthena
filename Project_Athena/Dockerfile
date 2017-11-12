@@ -12,5 +12,5 @@ ENV NAME World
 ENV API_TOKEN None
 ENV BOT-NAME Athena
 
-# Run app.py when the container launches
+# Run command.
 CMD ["python3", "Athena/run.py"]
