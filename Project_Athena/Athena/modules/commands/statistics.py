@@ -16,9 +16,8 @@ def my_default_handler(message):
 
 @respond_to('stats$|statistics$|stats|statistics', re.IGNORECASE)
 @respond_to('stats (.*) (.*)', re.IGNORECASE)
-@respond_to('statistics from (.*) to (.*)', re.IGNORECASE)
-@respond_to('send (.*) statistics from (.*) between (.*) and (.*)')
-def statistics(message, user=None, start_date=None, end_date=None):
+@respond_to('show me (.*) from (.*) to (.*)', re.IGNORECASE)
+def statistics(message, start_date=None, end_date=None):
     """
     :param message:
     :param user:
@@ -33,3 +32,5 @@ def statistics(message, user=None, start_date=None, end_date=None):
         message.reply('{0} {1}, {2}'.format(reply, start_date, end_date))
     else:
         message.reply('{0}'.format(reply))
+
+
