@@ -29,13 +29,13 @@ There are a couple of services I'm currently planning on writing API calls for o
 
    From Google sheets you will be able to pull out statistics from specific sheets and cells or multiple sheets and cells in response to indirect messages or direct messages.
 
+_I have got others that I have in mind but, for the moment, these are the only two that are planned._
+
 Custom checks I'm looking to create:
 1. Ping check
 2. Web site or web page response time
 3. Cron style service checks
 
-
-I have got others that I have in mind but, for the moment, these are the only two that are planned.
 
 ## Current to do:
 
