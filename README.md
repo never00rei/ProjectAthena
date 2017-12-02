@@ -6,7 +6,7 @@ Athena is a Slack bot for operations, connecting to services providing metrics a
 
 **_What can Athena currently do?_**
 
-Currently Athena can greet you, responding to direct messages or just listening in for keywords or service names in channels.
+Currently Athena can greet you, responding to direct messages or just listening in channels. Athena can also mock a line graph between dates and reply with a PNG image.
 
 **_What is planned for Athena?_**
 + Slack based management of services: creating links to services, updating links to services, updating service SLAs and amending user based permissions.
