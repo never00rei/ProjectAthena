@@ -9,14 +9,14 @@ Athena is a Slack bot for operations, connecting to services providing metrics a
 Currently Athena can greet you, responding to direct messages or just listening in for keywords or service names in channels.
 
 **_What is planned for Athena?_**
-+ Slack based management of services: creating links to services, updating links to services and amending user based permissions.
++ Slack based management of services: creating links to services, updating links to services, updating service SLAs and amending user based permissions.
 + Conversational responses to queries about services Athena is linked to.
 
   For instance, if you were to say:
 
   > @Athena is google up?
 
-  Athena would respond in kind based on the severity of the issue.
+  Athena would respond in kind based on the check. For instance, if the check specified that an acceptable response time should be as long as 2 or 10 seconds, Athena would reply with that the service was operating normally - anything above the specified times would result in Athena replying with some statistics surrounding the abnormally operating service.
 
 
 **_What services or checks are you planning on integrating with or creating?_**
@@ -48,6 +48,10 @@ I have got others that I have in mind but, for the moment, these are the only tw
    2. Write function for handling and presenting single data points
    3. Write function for handling and presenting multiple data points
    4. Write wrapper for presenting data in graph format
+4. **Service Checks**
+   1. Write function which pings a service.
+   2. Write function which requests as website or webpage.
+   3. Write a ticker service for running checks over a time frame.
 
 **_Service Integration_**
 1. API Calls
