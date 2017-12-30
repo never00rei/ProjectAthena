@@ -12,6 +12,5 @@ DEBUG = True
 
 # Custom plugin override list.
 PLUGINS = [
-    'modules.commands',
-    'modules.greetings'
+    'modules'
 ]
