@@ -85,6 +85,7 @@ def channel_service_message(message):
                          json.dumps(attachments),
                          in_thread=True)
 
+
 @respond_to('list all services', re.IGNORECASE)
 @respond_to('list services', re.IGNORECASE)
 @respond_to('What services do we have', re.IGNORECASE)
