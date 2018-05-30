@@ -11,8 +11,5 @@ def check_load_time(url):
     if url is None:
         return {'status': '404'}
     else:
-        try:
-            time_elapsed = requests.get(url).elapsed.total_seconds()
-            return {'status': '200', 'response_time': time_elapsed}
-        except:
-            return {'status': '503'}
+        result = requests.get(url)
+        return {'status': result.status_code, 'response_time': result.time_elapsed}
