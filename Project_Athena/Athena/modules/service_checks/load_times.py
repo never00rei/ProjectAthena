@@ -12,4 +12,4 @@ def check_load_time(url):
         return {'status': '404'}
     else:
         result = requests.get(url)
-        return {'status': result.status_code, 'response_time': result.time_elapsed}
+        return {'status': result.status_code, 'response_time': result.elapsed.time_elapsed}
