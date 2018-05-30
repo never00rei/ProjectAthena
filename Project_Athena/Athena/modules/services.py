@@ -130,7 +130,8 @@ def service_check(message, service):
             response = check_load_time(staged[0].check_url)
             print(response)
             if response is not None:
-                message.reply(std_reply.format(query[0].service_name, response['response_time']))
+                message.reply(std_reply.format(query[0].service_name,
+                                               response['response_time']))
             elif response['status'] == '503':
                 message.reply(err_reply)
             elif response['status'] == '404':

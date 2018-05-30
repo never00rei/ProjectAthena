@@ -7,7 +7,7 @@ import random
 from slackbot.bot import listen_to
 from slackbot.bot import respond_to
 
-@listen_to('Hello|Greetings|Aloha|Bonjour|Hey|Hi there|Hi', re.IGNORECASE)
+@listen_to('^Hello|^Greetings|^Aloha|^Bonjour|^Hey|^Hi there&|^Hi$', re.IGNORECASE)
 def greetings_channel(message):
     """
     Return a greeting.
@@ -19,7 +19,7 @@ def greetings_channel(message):
     message.reply("{0} :smiley:".format(reply), in_thread=True)
 
 
-@respond_to('Hello|Greetings|Aloha|Bonjour|Hey|Hi there|Hi', re.IGNORECASE)
+@respond_to('^Hello|^Greetings|^Aloha|^Bonjour|^Hey|^Hi there&|^Hi$', re.IGNORECASE)
 def greetings_at(message):
     """
     Return a greeting.
@@ -31,7 +31,7 @@ def greetings_at(message):
     message.reply("{0}".format(reply))
 
 
-@listen_to('^Good (evening|afternoon|morning)', re.IGNORECASE)
+@listen_to('^Good (evening|afternoon|morning)$', re.IGNORECASE)
 def greetings_time_based_channel(message, period=None):
     now = datetime.datetime.now()
     if now.hour > 0 and now.hour < 12:
@@ -42,35 +42,28 @@ def greetings_time_based_channel(message, period=None):
         current_period = 'evening'
 
     if period.lower() == current_period.lower():
-        message.reply('Good {0} :smiley:'.format(current_period),
+        message.reply(f'Good {current_period} :smiley:',
                       in_thread=True)
     else:
-        message.reply("It's currently {0}, so it should be {1} "
-                      "- but all the same, good {2} :smiley:".format(now.time(),
-                                                            current_period,
-                                                            period),
+        message.reply(f"It's currently {now.time()}, so it should be {current_period} "
+                      f"- but all the same, good {period} :smiley:",
                       in_thread=True)
 
 
-@respond_to('^Good (evening|afternoon|morning)', re.IGNORECASE)
+@respond_to('^Good (evening|afternoon|morning)$', re.IGNORECASE)
 def greetings_time_based_at(message, period=None):
     now = datetime.datetime.now()
     if now.hour > 0 and now.hour < 12:
         current_period = 'morning'
-    elif now.hour > 12 and now.hour < 17:
+    elif now.hour > 12 and now.hour < 18:
         current_period = 'afternoon'
     else:
         current_period = 'evening'
 
     if period.lower() == current_period.lower():
-        message.reply('Good {0} :smiley:'.format(current_period))
+        message.reply(f'Good {current_period} :smiley:')
     else:
-        message.reply("It's currently {0}, so it should be {1} "
-                      "- but all the same, good {2} :smiley:".format(now.time(),
-                                                            current_period,
-                                                            period))
+        message.reply(f"It's currently {now.time()}, so it should be {current_period} "
+                      f"- but all the same, good {period} :smiley:")
 
 
-@listen_to('start a thread')
-def start_thread(message):
-    message.reply('I started a thread', in_thread=True)
